@@ -17,12 +17,12 @@
 .card{
     margin-left: 10px;
     margin-right: 10px;
-    width: 400px;
-    height: 150px;
+    width: 500px;
+    height: max-content;
     background-color: white;
-    padding: 20px 15px;
+    padding: 20px 15px 2%;
     border-radius: 5px;
-    box-shadow: .1px .1px 10px 1px black;
+    box-shadow: .1px .1px 10px 0px rgba(00, 00, 00,10%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,11 +52,17 @@
     background-color: hsl(210, 36%, 96%);
 }
 
+#txt::placeholder{
+    color: rgb(43, 71, 82);
+}
+
 #submt{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 20%;
     border: none;
+    padding: 1px;
+    font-size: 80%;
     background-color: hsl(205, 86%, 80%);
 
 }
@@ -65,12 +71,19 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 0px 10px;
+    padding: 3px 0px 3px 10px;
+    margin-bottom: 10px;
+    background-color: rgb(254, 254, 254);
+    transition: .3s ease;
+}
+
+.message:hover{
+    background-color: rgb(240, 240, 240);
 }
 
 .fonts{
     width: 20%;
-    letter-spacing: 5px;
+    letter-spacing: 4%;
 }
 
 .trash1{
@@ -86,4 +99,8 @@
 
 .pen:hover{
     color: green !important;
+}
+
+.none{
+    display: none;
 }
