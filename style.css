@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    padding-top: 10%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-color: hsl(210, 36%, 96%);
+    align-items: flex-start;
+    justify-content: center;   
+}
+
+.card{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 400px;
+    height: 150px;
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 5px;
+    box-shadow: .1px .1px 10px 1px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: .4s ease-in-out;
+}
+
+.card h1{
+    color: hsl(205, 86%, 17%);
+    text-align: center;
+}
+
+.input{
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10%;
+}
+
+#txt{
+    padding: 5px 15px;
+    width: 80%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    background-color: hsl(210, 36%, 96%);
+}
+
+#submt{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 20%;
+    border: none;
+    background-color: hsl(205, 86%, 80%);
+
+}
+
+.message{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+.fonts{
+    width: 20%;
+    letter-spacing: 5px;
+}
+
+.trash1{
+    transition: .3s ease;
+}
+
+.trash1:hover{
+    color: red !important;
+}
+.pen{
+    transition: .3s ease;
+}
+
+.pen:hover{
+    color: green !important;
+}
