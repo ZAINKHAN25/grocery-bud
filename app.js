@@ -1,11 +1,14 @@
-submit = document.getElementById('submt');
-txt = document.getElementById('txt');
-entervalue = document.getElementsByClassName('entervalue');
-messagefather = document.getElementById('messagefather');
-clearitem = document.getElementById('clearitem');
-added = document.getElementById('added');
-empty = document.getElementById('empty');
-remove = document.getElementById('remove');
+const pen = document.getElementById('pen');
+const submit = document.getElementById('submt');
+const txt = document.getElementById('txt');
+const entervalue = document.getElementsByClassName('entervalue');
+const messagefather = document.getElementById('messagefather');
+const clearitem = document.getElementById('clearitem');
+const added = document.getElementById('added');
+const empty = document.getElementById('empty');
+const remove = document.querySelectorAll('.remove');
+const removefather = [...remove] 
+
 let notes = [];
 
 submit.addEventListener('click', () => {
@@ -19,7 +22,17 @@ submit.addEventListener('click', () => {
         }, 1500);
 
     } else {
-        notes.push(note);
+        // check if submit button value is "Edit Note"
+        if (submit.value === 'Edit Note') {
+            // replace the original note with the updated one
+            const index = notes.indexOf(pen.dataset.note);
+            notes[index] = note;
+            // reset submit button value to "Add Note"
+            submit.value = 'Add Note';
+        } else {
+            // add new note to array
+            notes.push(note);
+        }
         displayNotes();
         clearitem.classList.remove('none');
         
@@ -35,17 +48,18 @@ submit.addEventListener('click', () => {
   
 function displayNotes() {
     messagefather.innerHTML = '';
+
     notes.forEach((note, index) => {
         const div = document.createElement('div');
         div.innerHTML = `
-            <div class="message">
-                <div class="messagename">${note}</div>
+        <div class="message">
+        <div class="messagename">${note}</div>
                 <div class="fonts">
-                    <i style="color: yellowgreen;" class="pen fa-solid fa-pen-to-square"></i>
+                    <i style="color: yellowgreen;" id="pen" class="pen fa-solid fa-pen-to-square" data-note="${note}"></i>
                     <i style="color: rgb(148, 0, 0)" class="trash1 fa-solid fa-trash"></i>
                 </div>
                 </div>
-                `;
+        `;
         messagefather.appendChild(div);
 
         
@@ -59,7 +73,16 @@ function displayNotes() {
             }
         }
         );
-
+        const pen = div.querySelector('.pen');
+        pen.addEventListener('click', () => {
+            // set submit button value to "Edit Note"
+            submit.value = 'Edit Note';
+            // set the text field to the current note text
+            txt.value = note;
+            // set the data attribute of the pen icon to the current note text
+            pen.dataset.note = note;
+        });
+        
     });
 }
 
@@ -82,5 +105,4 @@ clearitem.addEventListener('click', () => {
         empty.classList.add('none');
     }, 1000);
     notes = [];
-});
-
+});``;

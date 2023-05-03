@@ -76,6 +76,22 @@
     background-color: hsl(205, 86%, 80%);
 }
 
+#edit{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 20%;
+    border: none;
+    padding: 1px;
+    font-size: 80%;
+    background-color: hsl(205, 86%, 90%);
+    transition: .5s ease;
+
+}
+
+#edit:hover{
+    background-color: hsl(205, 86%, 80%);
+}
+
 .message{
     display: flex;
     width: 100%;
