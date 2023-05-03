@@ -5,6 +5,7 @@ messagefather = document.getElementById('messagefather');
 clearitem = document.getElementById('clearitem');
 added = document.getElementById('added');
 empty = document.getElementById('empty');
+remove = document.getElementById('remove');
 let notes = [];
 
 submit.addEventListener('click', () => {
@@ -43,18 +44,32 @@ function displayNotes() {
                     <i style="color: yellowgreen;" class="pen fa-solid fa-pen-to-square"></i>
                     <i style="color: rgb(148, 0, 0)" class="trash1 fa-solid fa-trash"></i>
                 </div>
-            </div>
-        `;
+                </div>
+                `;
+        messagefather.appendChild(div);
+
+        
         const trash = div.querySelector('.trash1');
         trash.addEventListener('click', () => {
             notes.splice(index, 1);
+            displayremove();
             displayNotes();
             if (notes.length === 0) {
                 clearitem.classList.add('none');
             }
-        });
-        messagefather.appendChild(div);
+        }
+        );
+
     });
+}
+
+function displayremove(){
+    setTimeout(() => {
+        remove.classList.remove('none');
+    }, 10);
+    setTimeout(() => {
+        remove.classList.add('none');
+    }, 1500);
 }
 
 clearitem.addEventListener('click', () => {
@@ -65,7 +80,7 @@ clearitem.addEventListener('click', () => {
     }, 10);
     setTimeout(() => {
         empty.classList.add('none');
-    }, 1500);
+    }, 1000);
     notes = [];
 });
 
