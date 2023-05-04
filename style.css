@@ -14,6 +14,10 @@
     justify-content: center;   
 }
 
+body{
+    background-color: hsl(210, 36%, 96%);
+}
+
 .card{
     margin-left: 10px;
     margin-right: 10px;
@@ -164,6 +168,14 @@
     background-color: rgb(241, 196, 196);
 }
 .remove{
+    color: red;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    padding: 5px;
+    background-color: rgb(241, 196, 196);
+}
+.changeinvalue{
     color: red;
     width: 100%;
     height: 100%;

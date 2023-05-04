@@ -6,6 +6,8 @@ const messagefather = document.getElementById('messagefather');
 const clearitem = document.getElementById('clearitem');
 const added = document.getElementById('added');
 const empty = document.getElementById('empty');
+edit = document.querySelector('#edit')
+edit2 = document.querySelector('#edit2')
 
 let notes = [];
 
@@ -72,13 +74,12 @@ function displayNotes() {
         }
         );
         const pen = div.querySelector('.pen');
+
         pen.addEventListener('click', () => {
-            // set submit button value to "Edit Note"
-            submit.value = 'Edit Note';
-            // set the text field to the current note text
+            submit.classList.add('none')
+            edit.classList.remove('none')
             txt.value = note;
-            // set the data attribute of the pen icon to the current note text
-            pen.dataset.note = note;
+            changeedit(index);
         });
         
     });
@@ -105,3 +106,17 @@ clearitem.addEventListener('click', () => {
     }, 1000);
     notes = [];
 });``;
+
+function changeedit(index){
+    edit.addEventListener('click',()=>{
+
+        const txtvalue = document.getElementById('txt');
+        notes[index] = txtvalue.value;
+
+        displayNotes();
+        edit.classList.add('none');
+        submit.classList.remove('none');
+        txtvalue.value = "";
+
+    })
+}
