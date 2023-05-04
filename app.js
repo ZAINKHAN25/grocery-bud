@@ -6,8 +6,6 @@ const messagefather = document.getElementById('messagefather');
 const clearitem = document.getElementById('clearitem');
 const added = document.getElementById('added');
 const empty = document.getElementById('empty');
-const remove = document.querySelectorAll('.remove');
-const removefather = [...remove] 
 
 let notes = [];
 
@@ -87,6 +85,7 @@ function displayNotes() {
 }
 
 function displayremove(){
+    const remove = document.querySelector('.remove');
     setTimeout(() => {
         remove.classList.remove('none');
     }, 10);
